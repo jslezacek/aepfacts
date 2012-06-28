@@ -34,7 +34,7 @@ public class AepFactsDatabase {
         // student 9 add biog here
         data.put("bas", miniBiog("All you base are belong to me", "http://www.justducks.co.uk/Images/General%20Ducks/32cm%20Giant%20Duck.jpeg"));
         // student 11 add biog here
-        data.put("jozef", miniBiog("Jozef lives in Switzerland and likes kickboxing.", "http://t3.gstatic.com/images?q=tbn:ANd9GcSOfKOK-CpK1uyjgFDMTFRKY7TA-ZS50Kbr5IwrasjdoAycIJI7FQ"));
+        data.put("jozefo", miniBiog("Jozef lives in Switzerland and likes kickboxing.", "http://t3.gstatic.com/images?q=tbn:ANd9GcSOfKOK-CpK1uyjgFDMTFRKY7TA-ZS50Kbr5IwrasjdoAycIJI7FQ"));
         // student 12 add biog here
         data.put("lars", miniBiog("Lars is a student on the AEP course. He does like his coffee ...", "http://www.engineeringletters.com/images/Lars_Nolle.jpg"));
         // student 13 add biog here
