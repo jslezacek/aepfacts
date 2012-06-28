@@ -22,6 +22,10 @@ public class QueryProcessor {
             response = "Peseta";
         } else if (query.contains("Eiffel Tower")) {
             response = "Paris";
+        } else if (query.contains("Fibonacci")) {
+            String[] parts = query.split(" ");
+            int term = Integer.parseInt(parts[4].replace("th", ""));
+            response = new Integer(nthFibonacci(term)).toString();
         } else if (query.contains("what is") && query.contains("plus")) {
             String[] parts = query.split(" ");
             int a = Integer.parseInt(parts[3]);
@@ -37,6 +41,11 @@ public class QueryProcessor {
             int a = Integer.parseInt(parts[3]);
             int b = Integer.parseInt(parts[6]);
             response = new Integer(a * b).toString();
+        } else if (query.contains("what is") && query.contains("power")) {
+            String[] parts = query.split(" ");
+            int a = Integer.parseInt(parts[3]);
+            int b = Integer.parseInt(parts[8]);
+            response = new Integer((int) Math.pow(a, b)).toString();
         } else if (query.contains("largest:")) {
             int indexOfColon = query.lastIndexOf(':');
             String postColon = query.substring(indexOfColon + 1);
@@ -94,6 +103,11 @@ public class QueryProcessor {
                 return false;
         }
         return true;
+    }
+    
+    int nthFibonacci(int n) {
+        int[] fibs = new int[] {1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040}
+        return fibs[n];
     }
 
 }
