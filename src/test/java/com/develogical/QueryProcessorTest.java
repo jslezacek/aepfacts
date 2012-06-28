@@ -1,5 +1,6 @@
 package com.develogical;
 
+import groovy.util.Eval;
 import org.junit.Test;
 
 import java.util.Map;
@@ -54,6 +55,13 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void canFindCalc() {
+        String result = new QueryProcessor().process("469680: what is 1 multiplied by 4 plus 4");
+        assertNotNull(result);
+        assertThat(result, is("8"));
+    }
+
+    @Test
     public void canFindPrimes() {
         String result = new QueryProcessor().process("e4aec270: which of the following numbers are primes: 479, 509, 363, 679");
         assertNotNull(result);
@@ -65,6 +73,12 @@ public class QueryProcessorTest {
         String result = new QueryProcessor().process("unknown");
         assertNotNull(result);
         assertThat(result, is(""));
+    }
+
+    @Test
+    public void foo() {
+        Object x = Eval.me("4 + 2 * 3");
+        System.out.println(x);
     }
 }
 

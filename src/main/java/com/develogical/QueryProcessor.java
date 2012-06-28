@@ -1,5 +1,7 @@
 package com.develogical;
 
+import groovy.util.Eval;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +28,12 @@ public class QueryProcessor {
             String[] parts = query.split(" ");
             int term = Integer.parseInt(parts[4].replace("th", ""));
             response = new Integer(nthFibonacci(term)).toString();
+        } else if (query.contains("what is") && query.contains("plus") && query.contains("multiplied by")) {
+            String postIs = query.substring(query.indexOf("is") + 2);
+            return new Integer(textCalculator(postIs)).toString();
         } else if (query.contains("what is") && query.contains("plus")) {
             String postIs = query.substring(query.indexOf("is") + 2);
             String[] parts = postIs.split(" plus ");
-            //int a = Integer.parseInt(parts[3]);
-            //int b = Integer.parseInt(parts[5]);
-            //response = new Integer(a + b).toString();
             long sum = 0;
             for (int i=0; i < parts.length; i++) {
                 sum += Long.parseLong(parts[i].trim());
@@ -99,8 +101,13 @@ public class QueryProcessor {
             }
             response = result > -1 ? new Integer(result).toString() : "";
         }
-        System.out.println("Reponse: " + response);
+        System.out.println("Response: " + response);
         return response;
+    }
+
+    int textCalculator(String text) {
+        String calcString = text.replace("multiplied by", "*").replace("plus", "+");
+        return (Integer) (Eval.me(calcString));
     }
 
     boolean isPrime(int n) {
