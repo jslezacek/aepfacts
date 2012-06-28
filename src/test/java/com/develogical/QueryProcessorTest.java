@@ -54,6 +54,13 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void canFindPrimes() {
+        String result = new QueryProcessor().process("e4aec270: which of the following numbers are primes: 479, 509, 363, 679");
+        assertNotNull(result);
+        assertThat(result, is("479, 509"));
+    }
+
+    @Test
     public void returnsEmptyStringForUnknownQueries() {
         String result = new QueryProcessor().process("unknown");
         assertNotNull(result);
