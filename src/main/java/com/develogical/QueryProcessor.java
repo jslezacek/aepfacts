@@ -1,7 +1,8 @@
 package com.develogical;
 
-import groovy.util.Eval;
-
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,7 +108,15 @@ public class QueryProcessor {
 
     int textCalculator(String text) {
         String calcString = text.replace("multiplied by", "*").replace("plus", "+");
-        return (Integer) (Eval.me(calcString));
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+        Object result = 0;
+        try {
+            result = engine.eval(calcString);
+        } catch (ScriptException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return ((Double) result).intValue();
     }
 
     boolean isPrime(int n) {

@@ -1,8 +1,10 @@
 package com.develogical;
 
-import groovy.util.Eval;
 import org.junit.Test;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import java.util.Map;
 
 import static junit.framework.Assert.assertNotNull;
@@ -76,9 +78,13 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void foo() {
-        Object x = Eval.me("4 + 2 * 3");
-        System.out.println(x);
+    public void foo() throws ScriptException {
+        //Object x = Eval.me("4 + 2 * 3");
+        //System.out.println(x);
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+        Object result = engine.eval("3+4");
+        System.out.println(result);
     }
 }
 
