@@ -52,8 +52,8 @@ public class WebServer {
         return new AepFactsDatabase().lookup(query);
     }
 
-    public WebServer() throws Exception {
-        Server server = new Server(8080);
+    public WebServer(int port) throws Exception {
+        Server server = new Server(port);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
@@ -64,6 +64,6 @@ public class WebServer {
     }
 
     public static void main(String[] args) throws Exception {
-        new WebServer();
+        new WebServer(Integer.parseInt(System.getenv("PORT")));
     }
 }
