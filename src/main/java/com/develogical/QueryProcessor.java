@@ -7,6 +7,11 @@ public class QueryProcessor {
             return "hello";
         } else if (query.contains("what is your name")) {
             return "A-Team";
+        } else if (query.startsWith("what is") && query.contains("plus")) {
+            String[] parts = query.split(" ");
+            int a = Integer.parseInt(parts[2]);
+            int b = Integer.parseInt(parts[4]);
+            return new Integer(a + b).toString();
         }
         return "";
     }

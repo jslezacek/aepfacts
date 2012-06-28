@@ -26,6 +26,13 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void canAddNumbers() {
+        String result = new QueryProcessor().process("what is 1 plus 2");
+        assertNotNull(result);
+        assertThat(result, is("3"));
+    }
+
+    @Test
     public void returnsEmptyStringForUnknownQueries() {
         String result = new QueryProcessor().process("unknown");
         assertNotNull(result);
