@@ -5,11 +5,11 @@ public class QueryProcessor {
     public String process(String query) {
         System.out.println(query);
         String response = "";
-        if (query.contains("hi")) {
+        if (query.startsWith(" hi")) {
             response = "hello";
         } else if (query.contains("what is your name")) {
             response = "A-Team";
-        } else if (query.startsWith("what is") && query.contains("plus")) {
+        } else if (query.contains("what is") && query.contains("plus")) {
             String[] parts = query.split(" ");
             int a = Integer.parseInt(parts[2]);
             int b = Integer.parseInt(parts[4]);
@@ -20,7 +20,7 @@ public class QueryProcessor {
             String[] numbers = postColon.split(",");
             int maxInt = Integer.MIN_VALUE;
             for (String numString : numbers) {
-                int num = Integer.parseInt(numString);
+                int num = Integer.parseInt(numString.trim());
                 if (num > maxInt) {
                     maxInt = num;
                 }

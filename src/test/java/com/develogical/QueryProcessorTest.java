@@ -13,7 +13,7 @@ public class QueryProcessorTest {
 
     @Test
     public void canGreetYou() {
-        String result = new QueryProcessor().process("hi");
+        String result = new QueryProcessor().process(" hi");
         assertNotNull(result);
         assertThat(result, is("hello"));
     }
@@ -30,6 +30,20 @@ public class QueryProcessorTest {
         String result = new QueryProcessor().process("what is 1 plus 2");
         assertNotNull(result);
         assertThat(result, is("3"));
+    }
+
+    @Test
+    public void canAddBiggerNumbers() {
+        String result = new QueryProcessor().process("what is 2011 plus 2018");
+        assertNotNull(result);
+        assertThat(result, is("4029"));
+    }
+
+    @Test
+    public void canComputeLargest() {
+        String result = new QueryProcessor().process("which of the following numbers is the largest: 98, 89, 882, 81");
+        assertNotNull(result);
+        assertThat(result, is("882"));
     }
 
     @Test
