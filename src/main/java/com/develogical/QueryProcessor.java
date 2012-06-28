@@ -14,6 +14,11 @@ public class QueryProcessor {
             int a = Integer.parseInt(parts[3]);
             int b = Integer.parseInt(parts[5]);
             response = new Integer(a + b).toString();
+        } else if (query.contains("what is") && query.contains("multiplied")) {
+            String[] parts = query.split(" ");
+            int a = Integer.parseInt(parts[3]);
+            int b = Integer.parseInt(parts[6]);
+            response = new Integer(a * b).toString();
         } else if (query.contains("largest:")) {
             int indexOfColon = query.lastIndexOf(':');
             String postColon = query.substring(indexOfColon + 1);

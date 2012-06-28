@@ -33,10 +33,10 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void canAddBiggerNumbers() {
-        String result = new QueryProcessor().process("hghkyh: what is 2011 plus 2018");
+    public void canMultiplyNumbers() {
+        String result = new QueryProcessor().process("2a7d47a0: what is 9 multiplied by 7");
         assertNotNull(result);
-        assertThat(result, is("4029"));
+        assertThat(result, is("63"));
     }
 
     @Test
@@ -45,6 +45,13 @@ public class QueryProcessorTest {
         assertNotNull(result);
         assertThat(result, is("882"));
     }
+
+    /*@Test
+    public void canFindSquareAndCube() {
+        String result = new QueryProcessor().process("1f7b3cb0: which of the following numbers is both a square and a cube: 894, 9");
+        assertNotNull(result);
+        assertThat(result, is("882"));
+    }*/
 
     @Test
     public void returnsEmptyStringForUnknownQueries() {
