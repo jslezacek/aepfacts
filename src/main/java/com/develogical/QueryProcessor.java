@@ -31,6 +31,21 @@ public class QueryProcessor {
                 }
             }
             response = new Integer(maxInt).toString();
+        } else if (query.contains("square and a cube")) {
+            int indexOfColon = query.lastIndexOf(':');
+            String postColon = query.substring(indexOfColon + 1);
+            String[] numbers = postColon.split(",");
+            int result = -1;
+            for (int i=0; i< numbers.length; i++) {
+                String numString = numbers[i];
+                int num = Integer.parseInt(numString.trim());
+                double sqRoot = Math.pow(num, 0.5);
+                double cbRoot = Math.pow(num, 1.0/3);
+                if ((sqRoot - Math.floor(sqRoot) == 0) && (cbRoot - Math.floor(cbRoot) == 0)) {
+                    result = num;
+                }
+            }
+            response = result > -1 ? new Integer(result).toString() : "";
         }
         System.out.println("Reponse: " + response);
         return response;

@@ -46,12 +46,12 @@ public class QueryProcessorTest {
         assertThat(result, is("882"));
     }
 
-    /*@Test
+    @Test
     public void canFindSquareAndCube() {
-        String result = new QueryProcessor().process("1f7b3cb0: which of the following numbers is both a square and a cube: 894, 9");
+        String result = new QueryProcessor().process("1f7b3cb0: which of the following numbers is both a square and a cube: 1, 9");
         assertNotNull(result);
-        assertThat(result, is("882"));
-    }*/
+        assertThat(result, is("1"));
+    }
 
     @Test
     public void returnsEmptyStringForUnknownQueries() {
