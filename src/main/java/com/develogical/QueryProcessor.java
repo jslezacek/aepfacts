@@ -15,6 +15,8 @@ public class QueryProcessor {
             response = "Yellow";
         } else if (query.contains("James Bond")) {
             response = "Sean Connery";
+        } else if (query.contains("Spain") && query.contains("Euro")) {
+            response = "Peseta";
         } else if (query.contains("what is") && query.contains("plus")) {
             String[] parts = query.split(" ");
             int a = Integer.parseInt(parts[3]);
@@ -45,8 +47,8 @@ public class QueryProcessor {
             for (int i=0; i< numbers.length; i++) {
                 String numString = numbers[i];
                 int num = Integer.parseInt(numString.trim());
-                double sqRoot = Math.pow(num, 0.5);
-                double cbRoot = Math.pow(num, 1.0/3);
+                double sqRoot = Math.sqrt(num);
+                double cbRoot = Math.cbrt(num);
                 if ((sqRoot - Math.floor(sqRoot) == 0) && (cbRoot - Math.floor(cbRoot) == 0)) {
                     result = num;
                 }

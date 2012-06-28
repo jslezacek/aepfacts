@@ -48,9 +48,9 @@ public class QueryProcessorTest {
 
     @Test
     public void canFindSquareAndCube() {
-        String result = new QueryProcessor().process("1f7b3cb0: which of the following numbers is both a square and a cube: 1, 9");
+        String result = new QueryProcessor().process("1f7b3cb0: which of the following numbers is both a square and a cube: 64, 9");
         assertNotNull(result);
-        assertThat(result, is("1"));
+        assertThat(result, is("64"));
     }
 
     @Test
