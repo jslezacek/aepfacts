@@ -9,6 +9,12 @@ public class QueryProcessor {
             response = "hello";
         } else if (query.contains("what is your name")) {
             response = "A-Team";
+        } else if (query.contains("Prime Minister")) {
+            response = "David Cameron";
+        } else if (query.contains("banana")) {
+            response = "Yellow";
+        } else if (query.contains("James Bond")) {
+            response = "Sean Connery";
         } else if (query.contains("what is") && query.contains("plus")) {
             String[] parts = query.split(" ");
             int a = Integer.parseInt(parts[3]);
