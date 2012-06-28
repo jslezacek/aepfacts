@@ -27,10 +27,16 @@ public class QueryProcessor {
             int term = Integer.parseInt(parts[4].replace("th", ""));
             response = new Integer(nthFibonacci(term)).toString();
         } else if (query.contains("what is") && query.contains("plus")) {
-            String[] parts = query.split(" ");
-            int a = Integer.parseInt(parts[3]);
-            int b = Integer.parseInt(parts[5]);
-            response = new Integer(a + b).toString();
+            String postIs = query.substring(query.indexOf("is") + 2);
+            String[] parts = postIs.split(" plus ");
+            //int a = Integer.parseInt(parts[3]);
+            //int b = Integer.parseInt(parts[5]);
+            //response = new Integer(a + b).toString();
+            long sum = 0;
+            for (int i=0; i < parts.length; i++) {
+                sum += Long.parseLong(parts[i].trim());
+            }
+            return new Long(sum).toString();
         } else if (query.contains("what is") && query.contains("minus")) {
             String[] parts = query.split(" ");
             int a = Integer.parseInt(parts[3]);
@@ -45,7 +51,7 @@ public class QueryProcessor {
             String[] parts = query.split(" ");
             int a = Integer.parseInt(parts[3]);
             int b = Integer.parseInt(parts[8]);
-            response = new Integer((int) Math.pow(a, b)).toString();
+            response = new Long((long) Math.pow(a, b)).toString();
         } else if (query.contains("largest:")) {
             int indexOfColon = query.lastIndexOf(':');
             String postColon = query.substring(indexOfColon + 1);
